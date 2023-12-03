@@ -44,6 +44,7 @@ class CSVAdaptor(format.adaptor.Adaptor):
         cls,
         filename: str,
         source_object: Labels,
+        all_frames: bool,
         source_path: str = None,
         video: Video = None,
     ):
@@ -62,6 +63,7 @@ class CSVAdaptor(format.adaptor.Adaptor):
 
         write_analysis(
             labels=source_object,
+            all_frames=all_frames,
             output_path=filename,
             labels_path=source_path,
             all_frames=True,
