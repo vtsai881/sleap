@@ -348,6 +348,17 @@ def write_csv_file(output_path, data_dict):
             tracks.append(detection)
 
     tracks = pd.DataFrame(tracks)
+    
+    if all_frames:
+        print("Debug: Tracks DataFrame shape:", tracks.shape)
+        tracks = tracks.set_index('frame_idx')
+        print("Debug", tracks.head())
+        print("check index:", len(data_dict["track_occupancy"]))
+        tracks = tracks.reindex(range(0, len(data_dict['track_occupancy'])),fill_value=0)
+        print("Debug", tracks.head())
+        tracks = tracks.reset_index(drop=False)
+        tracks.to_csv(output_path, index=False)
+    else:
     tracks.to_csv(output_path, index=False)
 
 
