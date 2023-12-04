@@ -506,7 +506,7 @@ class MainWindow(QMainWindow):
             lambda: self.commands.exportCSVFile(all_videos=True),
         )
         
-        fileMenu.addSeparator()
+        export_csv_menu.addSeparator()
         add_menu_item(
             export_csv_menu,
             "export_csv_current",
